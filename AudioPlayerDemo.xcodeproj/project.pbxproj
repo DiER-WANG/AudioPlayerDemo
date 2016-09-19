@@ -1,0 +1,699 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		847379D01D8F95DA000147A3 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 847379CF1D8F95DA000147A3 /* Accelerate.framework */; };
+		847379D61D8FB852000147A3 /* DmAudioItem.mm in Sources */ = {isa = PBXBuildFile; fileRef = 847379D51D8FB852000147A3 /* DmAudioItem.mm */; };
+		84BE15A11D8E682400A38C61 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BE15A01D8E682400A38C61 /* main.m */; };
+		84BE15A41D8E682400A38C61 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BE15A31D8E682400A38C61 /* AppDelegate.m */; };
+		84BE15AA1D8E682400A38C61 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84BE15A81D8E682400A38C61 /* Main.storyboard */; };
+		84BE15AC1D8E682400A38C61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84BE15AB1D8E682400A38C61 /* Assets.xcassets */; };
+		84BE15AF1D8E682400A38C61 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84BE15AD1D8E682400A38C61 /* LaunchScreen.storyboard */; };
+		84BE15BA1D8E682400A38C61 /* AudioPlayerDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BE15B91D8E682400A38C61 /* AudioPlayerDemoTests.m */; };
+		84BE15C51D8E682400A38C61 /* AudioPlayerDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BE15C41D8E682400A38C61 /* AudioPlayerDemoUITests.m */; };
+		84BE15DF1D8E685C00A38C61 /* APAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BE15D41D8E685C00A38C61 /* APAudioPlayer.m */; };
+		84BE15E01D8E685C00A38C61 /* libbass.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84BE15D71D8E685C00A38C61 /* libbass.a */; };
+		84BE15E11D8E685C00A38C61 /* libbassflac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84BE15DA1D8E685C00A38C61 /* libbassflac.a */; };
+		84BE15E21D8E685C00A38C61 /* libbassopus.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84BE15DC1D8E685C00A38C61 /* libbassopus.a */; };
+		84BE15E31D8E685C00A38C61 /* libbasswv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84BE15DE1D8E685C00A38C61 /* libbasswv.a */; };
+		84BE15EE1D8E698600A38C61 /* 1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 84BE15E51D8E698600A38C61 /* 1.wav */; };
+		84BE15EF1D8E698600A38C61 /* 2.flac in Resources */ = {isa = PBXBuildFile; fileRef = 84BE15E61D8E698600A38C61 /* 2.flac */; };
+		84BE15F01D8E698600A38C61 /* 3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 84BE15E71D8E698600A38C61 /* 3.wav */; };
+		84BE15F11D8E698600A38C61 /* 4.flac in Resources */ = {isa = PBXBuildFile; fileRef = 84BE15E81D8E698600A38C61 /* 4.flac */; };
+		84BE15F21D8E698600A38C61 /* 5.wav in Resources */ = {isa = PBXBuildFile; fileRef = 84BE15E91D8E698600A38C61 /* 5.wav */; };
+		84BE15F31D8E698600A38C61 /* 6.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84BE15EA1D8E698600A38C61 /* 6.mp3 */; };
+		84BE15F41D8E698600A38C61 /* 7.flac in Resources */ = {isa = PBXBuildFile; fileRef = 84BE15EB1D8E698600A38C61 /* 7.flac */; };
+		84BE15F51D8E698600A38C61 /* 8.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84BE15EC1D8E698600A38C61 /* 8.mp3 */; };
+		84BE15F61D8E698600A38C61 /* 9.flac in Resources */ = {isa = PBXBuildFile; fileRef = 84BE15ED1D8E698600A38C61 /* 9.flac */; };
+		84BE15F91D8E69FE00A38C61 /* PlaylistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BE15F81D8E69FE00A38C61 /* PlaylistViewController.m */; };
+		84BE15FD1D8E748F00A38C61 /* PlayManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BE15FC1D8E748F00A38C61 /* PlayManager.m */; };
+		84BE16001D8E7E6700A38C61 /* PlayingInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BE15FF1D8E7E6700A38C61 /* PlayingInfoViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		84BE15B61D8E682400A38C61 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84BE15941D8E682400A38C61 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 84BE159B1D8E682400A38C61;
+			remoteInfo = AudioPlayerDemo;
+		};
+		84BE15C11D8E682400A38C61 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84BE15941D8E682400A38C61 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 84BE159B1D8E682400A38C61;
+			remoteInfo = AudioPlayerDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		847379CF1D8F95DA000147A3 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		847379D41D8FB852000147A3 /* DmAudioItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DmAudioItem.h; sourceTree = "<group>"; };
+		847379D51D8FB852000147A3 /* DmAudioItem.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DmAudioItem.mm; sourceTree = "<group>"; };
+		84BE159C1D8E682400A38C61 /* AudioPlayerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioPlayerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		84BE15A01D8E682400A38C61 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		84BE15A21D8E682400A38C61 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		84BE15A31D8E682400A38C61 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		84BE15A91D8E682400A38C61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		84BE15AB1D8E682400A38C61 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		84BE15AE1D8E682400A38C61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		84BE15B01D8E682400A38C61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84BE15B51D8E682400A38C61 /* AudioPlayerDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AudioPlayerDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		84BE15B91D8E682400A38C61 /* AudioPlayerDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AudioPlayerDemoTests.m; sourceTree = "<group>"; };
+		84BE15BB1D8E682400A38C61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84BE15C01D8E682400A38C61 /* AudioPlayerDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AudioPlayerDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		84BE15C41D8E682400A38C61 /* AudioPlayerDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AudioPlayerDemoUITests.m; sourceTree = "<group>"; };
+		84BE15C61D8E682400A38C61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84BE15D31D8E685C00A38C61 /* APAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APAudioPlayer.h; sourceTree = "<group>"; };
+		84BE15D41D8E685C00A38C61 /* APAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APAudioPlayer.m; sourceTree = "<group>"; };
+		84BE15D61D8E685C00A38C61 /* bass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bass.h; sourceTree = "<group>"; };
+		84BE15D71D8E685C00A38C61 /* libbass.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libbass.a; sourceTree = "<group>"; };
+		84BE15DA1D8E685C00A38C61 /* libbassflac.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libbassflac.a; sourceTree = "<group>"; };
+		84BE15DC1D8E685C00A38C61 /* libbassopus.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libbassopus.a; sourceTree = "<group>"; };
+		84BE15DE1D8E685C00A38C61 /* libbasswv.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libbasswv.a; sourceTree = "<group>"; };
+		84BE15E51D8E698600A38C61 /* 1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 1.wav; sourceTree = "<group>"; };
+		84BE15E61D8E698600A38C61 /* 2.flac */ = {isa = PBXFileReference; lastKnownFileType = file; path = 2.flac; sourceTree = "<group>"; };
+		84BE15E71D8E698600A38C61 /* 3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 3.wav; sourceTree = "<group>"; };
+		84BE15E81D8E698600A38C61 /* 4.flac */ = {isa = PBXFileReference; lastKnownFileType = file; path = 4.flac; sourceTree = "<group>"; };
+		84BE15E91D8E698600A38C61 /* 5.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 5.wav; sourceTree = "<group>"; };
+		84BE15EA1D8E698600A38C61 /* 6.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 6.mp3; sourceTree = "<group>"; };
+		84BE15EB1D8E698600A38C61 /* 7.flac */ = {isa = PBXFileReference; lastKnownFileType = file; path = 7.flac; sourceTree = "<group>"; };
+		84BE15EC1D8E698600A38C61 /* 8.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 8.mp3; sourceTree = "<group>"; };
+		84BE15ED1D8E698600A38C61 /* 9.flac */ = {isa = PBXFileReference; lastKnownFileType = file; path = 9.flac; sourceTree = "<group>"; };
+		84BE15F71D8E69FE00A38C61 /* PlaylistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaylistViewController.h; sourceTree = "<group>"; };
+		84BE15F81D8E69FE00A38C61 /* PlaylistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaylistViewController.m; sourceTree = "<group>"; };
+		84BE15FB1D8E748F00A38C61 /* PlayManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayManager.h; sourceTree = "<group>"; };
+		84BE15FC1D8E748F00A38C61 /* PlayManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayManager.m; sourceTree = "<group>"; };
+		84BE15FE1D8E7E6700A38C61 /* PlayingInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayingInfoViewController.h; sourceTree = "<group>"; };
+		84BE15FF1D8E7E6700A38C61 /* PlayingInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayingInfoViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		84BE15991D8E682400A38C61 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				847379D01D8F95DA000147A3 /* Accelerate.framework in Frameworks */,
+				84BE15E21D8E685C00A38C61 /* libbassopus.a in Frameworks */,
+				84BE15E11D8E685C00A38C61 /* libbassflac.a in Frameworks */,
+				84BE15E01D8E685C00A38C61 /* libbass.a in Frameworks */,
+				84BE15E31D8E685C00A38C61 /* libbasswv.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84BE15B21D8E682400A38C61 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84BE15BD1D8E682400A38C61 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		847379CE1D8F95DA000147A3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				847379CF1D8F95DA000147A3 /* Accelerate.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		84BE15931D8E682400A38C61 = {
+			isa = PBXGroup;
+			children = (
+				84BE159E1D8E682400A38C61 /* AudioPlayerDemo */,
+				84BE15B81D8E682400A38C61 /* AudioPlayerDemoTests */,
+				84BE15C31D8E682400A38C61 /* AudioPlayerDemoUITests */,
+				84BE159D1D8E682400A38C61 /* Products */,
+				847379CE1D8F95DA000147A3 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		84BE159D1D8E682400A38C61 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				84BE159C1D8E682400A38C61 /* AudioPlayerDemo.app */,
+				84BE15B51D8E682400A38C61 /* AudioPlayerDemoTests.xctest */,
+				84BE15C01D8E682400A38C61 /* AudioPlayerDemoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		84BE159E1D8E682400A38C61 /* AudioPlayerDemo */ = {
+			isa = PBXGroup;
+			children = (
+				84BE15FA1D8E747000A38C61 /* PlayManager */,
+				84BE15D21D8E685C00A38C61 /* APAudioPlayer */,
+				84BE15A21D8E682400A38C61 /* AppDelegate.h */,
+				84BE15A31D8E682400A38C61 /* AppDelegate.m */,
+				84BE15F71D8E69FE00A38C61 /* PlaylistViewController.h */,
+				84BE15F81D8E69FE00A38C61 /* PlaylistViewController.m */,
+				84BE15FE1D8E7E6700A38C61 /* PlayingInfoViewController.h */,
+				84BE15FF1D8E7E6700A38C61 /* PlayingInfoViewController.m */,
+				84BE15A81D8E682400A38C61 /* Main.storyboard */,
+				84BE15AB1D8E682400A38C61 /* Assets.xcassets */,
+				84BE15AD1D8E682400A38C61 /* LaunchScreen.storyboard */,
+				84BE15B01D8E682400A38C61 /* Info.plist */,
+				84BE159F1D8E682400A38C61 /* Supporting Files */,
+			);
+			path = AudioPlayerDemo;
+			sourceTree = "<group>";
+		};
+		84BE159F1D8E682400A38C61 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				84BE15A01D8E682400A38C61 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		84BE15B81D8E682400A38C61 /* AudioPlayerDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				84BE15B91D8E682400A38C61 /* AudioPlayerDemoTests.m */,
+				84BE15BB1D8E682400A38C61 /* Info.plist */,
+			);
+			path = AudioPlayerDemoTests;
+			sourceTree = "<group>";
+		};
+		84BE15C31D8E682400A38C61 /* AudioPlayerDemoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				84BE15C41D8E682400A38C61 /* AudioPlayerDemoUITests.m */,
+				84BE15C61D8E682400A38C61 /* Info.plist */,
+			);
+			path = AudioPlayerDemoUITests;
+			sourceTree = "<group>";
+		};
+		84BE15D21D8E685C00A38C61 /* APAudioPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				84BE15E41D8E698600A38C61 /* SongDemo */,
+				84BE15D31D8E685C00A38C61 /* APAudioPlayer.h */,
+				84BE15D41D8E685C00A38C61 /* APAudioPlayer.m */,
+				84BE15D51D8E685C00A38C61 /* bass */,
+			);
+			path = APAudioPlayer;
+			sourceTree = "<group>";
+		};
+		84BE15D51D8E685C00A38C61 /* bass */ = {
+			isa = PBXGroup;
+			children = (
+				84BE15D61D8E685C00A38C61 /* bass.h */,
+				84BE15D71D8E685C00A38C61 /* libbass.a */,
+				84BE15D81D8E685C00A38C61 /* plugins */,
+			);
+			path = bass;
+			sourceTree = "<group>";
+		};
+		84BE15D81D8E685C00A38C61 /* plugins */ = {
+			isa = PBXGroup;
+			children = (
+				84BE15D91D8E685C00A38C61 /* bassflac */,
+				84BE15DB1D8E685C00A38C61 /* bassopus */,
+				84BE15DD1D8E685C00A38C61 /* basswv */,
+			);
+			path = plugins;
+			sourceTree = "<group>";
+		};
+		84BE15D91D8E685C00A38C61 /* bassflac */ = {
+			isa = PBXGroup;
+			children = (
+				84BE15DA1D8E685C00A38C61 /* libbassflac.a */,
+			);
+			path = bassflac;
+			sourceTree = "<group>";
+		};
+		84BE15DB1D8E685C00A38C61 /* bassopus */ = {
+			isa = PBXGroup;
+			children = (
+				84BE15DC1D8E685C00A38C61 /* libbassopus.a */,
+			);
+			path = bassopus;
+			sourceTree = "<group>";
+		};
+		84BE15DD1D8E685C00A38C61 /* basswv */ = {
+			isa = PBXGroup;
+			children = (
+				84BE15DE1D8E685C00A38C61 /* libbasswv.a */,
+			);
+			path = basswv;
+			sourceTree = "<group>";
+		};
+		84BE15E41D8E698600A38C61 /* SongDemo */ = {
+			isa = PBXGroup;
+			children = (
+				84BE15E51D8E698600A38C61 /* 1.wav */,
+				84BE15E61D8E698600A38C61 /* 2.flac */,
+				84BE15E71D8E698600A38C61 /* 3.wav */,
+				84BE15E81D8E698600A38C61 /* 4.flac */,
+				84BE15E91D8E698600A38C61 /* 5.wav */,
+				84BE15EA1D8E698600A38C61 /* 6.mp3 */,
+				84BE15EB1D8E698600A38C61 /* 7.flac */,
+				84BE15EC1D8E698600A38C61 /* 8.mp3 */,
+				84BE15ED1D8E698600A38C61 /* 9.flac */,
+			);
+			path = SongDemo;
+			sourceTree = "<group>";
+		};
+		84BE15FA1D8E747000A38C61 /* PlayManager */ = {
+			isa = PBXGroup;
+			children = (
+				84BE15FB1D8E748F00A38C61 /* PlayManager.h */,
+				84BE15FC1D8E748F00A38C61 /* PlayManager.m */,
+				847379D41D8FB852000147A3 /* DmAudioItem.h */,
+				847379D51D8FB852000147A3 /* DmAudioItem.mm */,
+			);
+			path = PlayManager;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		84BE159B1D8E682400A38C61 /* AudioPlayerDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84BE15C91D8E682400A38C61 /* Build configuration list for PBXNativeTarget "AudioPlayerDemo" */;
+			buildPhases = (
+				84BE15981D8E682400A38C61 /* Sources */,
+				84BE15991D8E682400A38C61 /* Frameworks */,
+				84BE159A1D8E682400A38C61 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AudioPlayerDemo;
+			productName = AudioPlayerDemo;
+			productReference = 84BE159C1D8E682400A38C61 /* AudioPlayerDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		84BE15B41D8E682400A38C61 /* AudioPlayerDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84BE15CC1D8E682400A38C61 /* Build configuration list for PBXNativeTarget "AudioPlayerDemoTests" */;
+			buildPhases = (
+				84BE15B11D8E682400A38C61 /* Sources */,
+				84BE15B21D8E682400A38C61 /* Frameworks */,
+				84BE15B31D8E682400A38C61 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				84BE15B71D8E682400A38C61 /* PBXTargetDependency */,
+			);
+			name = AudioPlayerDemoTests;
+			productName = AudioPlayerDemoTests;
+			productReference = 84BE15B51D8E682400A38C61 /* AudioPlayerDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		84BE15BF1D8E682400A38C61 /* AudioPlayerDemoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84BE15CF1D8E682400A38C61 /* Build configuration list for PBXNativeTarget "AudioPlayerDemoUITests" */;
+			buildPhases = (
+				84BE15BC1D8E682400A38C61 /* Sources */,
+				84BE15BD1D8E682400A38C61 /* Frameworks */,
+				84BE15BE1D8E682400A38C61 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				84BE15C21D8E682400A38C61 /* PBXTargetDependency */,
+			);
+			name = AudioPlayerDemoUITests;
+			productName = AudioPlayerDemoUITests;
+			productReference = 84BE15C01D8E682400A38C61 /* AudioPlayerDemoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		84BE15941D8E682400A38C61 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = wangchangyang;
+				TargetAttributes = {
+					84BE159B1D8E682400A38C61 = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = E8KT45CMGH;
+					};
+					84BE15B41D8E682400A38C61 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 84BE159B1D8E682400A38C61;
+					};
+					84BE15BF1D8E682400A38C61 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 84BE159B1D8E682400A38C61;
+					};
+				};
+			};
+			buildConfigurationList = 84BE15971D8E682400A38C61 /* Build configuration list for PBXProject "AudioPlayerDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 84BE15931D8E682400A38C61;
+			productRefGroup = 84BE159D1D8E682400A38C61 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				84BE159B1D8E682400A38C61 /* AudioPlayerDemo */,
+				84BE15B41D8E682400A38C61 /* AudioPlayerDemoTests */,
+				84BE15BF1D8E682400A38C61 /* AudioPlayerDemoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		84BE159A1D8E682400A38C61 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84BE15F51D8E698600A38C61 /* 8.mp3 in Resources */,
+				84BE15F01D8E698600A38C61 /* 3.wav in Resources */,
+				84BE15EF1D8E698600A38C61 /* 2.flac in Resources */,
+				84BE15F61D8E698600A38C61 /* 9.flac in Resources */,
+				84BE15F11D8E698600A38C61 /* 4.flac in Resources */,
+				84BE15F31D8E698600A38C61 /* 6.mp3 in Resources */,
+				84BE15AF1D8E682400A38C61 /* LaunchScreen.storyboard in Resources */,
+				84BE15F41D8E698600A38C61 /* 7.flac in Resources */,
+				84BE15AC1D8E682400A38C61 /* Assets.xcassets in Resources */,
+				84BE15EE1D8E698600A38C61 /* 1.wav in Resources */,
+				84BE15F21D8E698600A38C61 /* 5.wav in Resources */,
+				84BE15AA1D8E682400A38C61 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84BE15B31D8E682400A38C61 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84BE15BE1D8E682400A38C61 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		84BE15981D8E682400A38C61 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				847379D61D8FB852000147A3 /* DmAudioItem.mm in Sources */,
+				84BE15F91D8E69FE00A38C61 /* PlaylistViewController.m in Sources */,
+				84BE15FD1D8E748F00A38C61 /* PlayManager.m in Sources */,
+				84BE15A41D8E682400A38C61 /* AppDelegate.m in Sources */,
+				84BE16001D8E7E6700A38C61 /* PlayingInfoViewController.m in Sources */,
+				84BE15DF1D8E685C00A38C61 /* APAudioPlayer.m in Sources */,
+				84BE15A11D8E682400A38C61 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84BE15B11D8E682400A38C61 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84BE15BA1D8E682400A38C61 /* AudioPlayerDemoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84BE15BC1D8E682400A38C61 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84BE15C51D8E682400A38C61 /* AudioPlayerDemoUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		84BE15B71D8E682400A38C61 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 84BE159B1D8E682400A38C61 /* AudioPlayerDemo */;
+			targetProxy = 84BE15B61D8E682400A38C61 /* PBXContainerItemProxy */;
+		};
+		84BE15C21D8E682400A38C61 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 84BE159B1D8E682400A38C61 /* AudioPlayerDemo */;
+			targetProxy = 84BE15C11D8E682400A38C61 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		84BE15A81D8E682400A38C61 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84BE15A91D8E682400A38C61 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		84BE15AD1D8E682400A38C61 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84BE15AE1D8E682400A38C61 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		84BE15C71D8E682400A38C61 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		84BE15C81D8E682400A38C61 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		84BE15CA1D8E682400A38C61 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = E8KT45CMGH;
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = AudioPlayerDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AudioPlayerDemo/APAudioPlayer/bass",
+					"$(PROJECT_DIR)/AudioPlayerDemo/APAudioPlayer/bass/plugins/bassflac",
+					"$(PROJECT_DIR)/AudioPlayerDemo/APAudioPlayer/bass/plugins/bassopus",
+					"$(PROJECT_DIR)/AudioPlayerDemo/APAudioPlayer/bass/plugins/basswv",
+					"$(PROJECT_DIR)/AudioPlayerDemo/PlayManager/id3Libs/include",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yangMore.AudioPlayerDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		84BE15CB1D8E682400A38C61 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = E8KT45CMGH;
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = AudioPlayerDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AudioPlayerDemo/APAudioPlayer/bass",
+					"$(PROJECT_DIR)/AudioPlayerDemo/APAudioPlayer/bass/plugins/bassflac",
+					"$(PROJECT_DIR)/AudioPlayerDemo/APAudioPlayer/bass/plugins/bassopus",
+					"$(PROJECT_DIR)/AudioPlayerDemo/APAudioPlayer/bass/plugins/basswv",
+					"$(PROJECT_DIR)/AudioPlayerDemo/PlayManager/id3Libs/include",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yangMore.AudioPlayerDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		84BE15CD1D8E682400A38C61 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = AudioPlayerDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yangMore.AudioPlayerDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AudioPlayerDemo.app/AudioPlayerDemo";
+			};
+			name = Debug;
+		};
+		84BE15CE1D8E682400A38C61 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = AudioPlayerDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yangMore.AudioPlayerDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AudioPlayerDemo.app/AudioPlayerDemo";
+			};
+			name = Release;
+		};
+		84BE15D01D8E682400A38C61 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = AudioPlayerDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yangMore.AudioPlayerDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = AudioPlayerDemo;
+			};
+			name = Debug;
+		};
+		84BE15D11D8E682400A38C61 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = AudioPlayerDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yangMore.AudioPlayerDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = AudioPlayerDemo;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		84BE15971D8E682400A38C61 /* Build configuration list for PBXProject "AudioPlayerDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84BE15C71D8E682400A38C61 /* Debug */,
+				84BE15C81D8E682400A38C61 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		84BE15C91D8E682400A38C61 /* Build configuration list for PBXNativeTarget "AudioPlayerDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84BE15CA1D8E682400A38C61 /* Debug */,
+				84BE15CB1D8E682400A38C61 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		84BE15CC1D8E682400A38C61 /* Build configuration list for PBXNativeTarget "AudioPlayerDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84BE15CD1D8E682400A38C61 /* Debug */,
+				84BE15CE1D8E682400A38C61 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		84BE15CF1D8E682400A38C61 /* Build configuration list for PBXNativeTarget "AudioPlayerDemoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84BE15D01D8E682400A38C61 /* Debug */,
+				84BE15D11D8E682400A38C61 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 84BE15941D8E682400A38C61 /* Project object */;
+}
