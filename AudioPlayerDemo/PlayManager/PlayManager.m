@@ -11,6 +11,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import <MediaPlayer/MPNowPlayingInfoCenter.h>
 #import <MediaPlayer/MPMediaItem.h>
+
 #import "DmAudioItem.h"
 
 @interface PlayManager ()<APAudioPlayerDelegate>
@@ -37,9 +38,6 @@
                                                      name:AVAudioSessionRouteChangeNotification
                                                    object:[AVAudioSession sharedInstance]];
         
-        
-        
-        
     });
     return singleton;
 }
@@ -51,7 +49,6 @@
         }
     }
 }
-
 
 - (void)playAtIndex:(NSUInteger)index withPlaylist:(NSArray *)playList {
     
@@ -127,11 +124,6 @@
             _playingTimer.fireDate = [NSDate distantFuture];
         }
     }
-    
-    //DmAudioItem *item = [DmAudioItem getMusicInfo:_playList[_currentIndex]];
-    
-    [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:@{}];
-    
 }
 
 - (void)startPlaying {
@@ -167,40 +159,6 @@
  */
 - (void)playerEndInterruption:(APAudioPlayer *)player shouldResume:(BOOL)should {
     
-}
-
-- (BOOL)canBecomeFirstResponder {
-    return YES;
-}
-
-- (void)remoteControlReceivedWithEvent:(UIEvent *)event {
-    
-    if (event.type == UIEventTypeRemoteControl) {
-        switch (event.subtype) {
-            case UIEventSubtypeRemoteControlPlay:
-                if (!_player.isPlaying) {
-                    [self pauseOrPlay];
-                }
-                break;
-            case UIEventSubtypeRemoteControlPause:
-                
-                if (_player.isPlaying) {
-                    [self pauseOrPlay];
-                }
-                break;
-            case UIEventSubtypeRemoteControlTogglePlayPause:
-                [self pauseOrPlay];
-                break;
-            case UIEventSubtypeRemoteControlNextTrack:
-                [self playNext];
-                break;
-            case UIEventSubtypeRemoteControlPreviousTrack:
-                [self playPrevious];
-                break;
-            default:
-                break;
-        }
-    }
 }
 
 @end
