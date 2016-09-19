@@ -9,6 +9,8 @@
 #import "PlayingInfoViewController.h"
 #import "PlayManager.h"
 
+#import <AVFoundation/AVFoundation.h>
+
 
 @interface PlayingInfoViewController ()<PlayManagerDelegate>
 @property (weak, nonatomic) IBOutlet UISlider *positionSlider;
