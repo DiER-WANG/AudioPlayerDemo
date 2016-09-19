@@ -38,8 +38,20 @@
                                                      name:AVAudioSessionRouteChangeNotification
                                                    object:[AVAudioSession sharedInstance]];
         
+        
+        
+        MPRemoteCommandCenter *cmdCenter = [MPRemoteCommandCenter sharedCommandCenter];
+        
+        [cmdCenter.pauseCommand addTarget:singleton action:@selector(pauseCmd)];
+        
     });
     return singleton;
+}
+
+- (void)pauseCmd {
+    
+    NSLog(@"xxxx");
+    
 }
 
 - (void)outputDeviceChanged:(NSNotification *)notify {
