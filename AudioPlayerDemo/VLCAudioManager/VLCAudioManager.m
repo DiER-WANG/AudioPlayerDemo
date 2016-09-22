@@ -81,7 +81,8 @@
     // 改变 时间
     if (_delegate && [_delegate respondsToSelector:@selector(vlcAudioPlayerTimeChanged:position:)]) {
         VLCMediaPlayer *mediaPlayer = (VLCMediaPlayer *)aNotification.object;
-        if (mediaPlayer.state == VLCMediaPlayerStateBuffering) {
+        if (mediaPlayer.state == VLCMediaPlayerStatePlaying ||
+            mediaPlayer.state == VLCMediaPlayerStateBuffering) {
             [_delegate vlcAudioPlayerTimeChanged:[NSString stringWithFormat:@"%@", mediaPlayer.time] position:mediaPlayer.position];
         }
     }
@@ -90,6 +91,7 @@
 - (void)mediaPlayerStateChanged:(NSNotification *)aNotification {
     if (_delegate && [_delegate respondsToSelector:@selector(vlcAudioPlayerStateChanged:)]) {
         VLCMediaPlayer *mediaPlayer = (VLCMediaPlayer *)aNotification.object;
+        
         if (mediaPlayer.state == VLCMediaPlayerStateBuffering) {
         }
         if (mediaPlayer.state == VLCMediaPlayerStatePlaying) {
