@@ -14,9 +14,7 @@
 @property (nonatomic, strong) NSString              *title;
 @property (nonatomic, strong) NSString              *album;
 @property (nonatomic, strong) NSString              *artist;
-@property (nonatomic, strong) NSString              *path;
 @property (nonatomic, strong) MPMediaItemArtwork    *artwork;
-@property (nonatomic, strong) NSURL                 *url;
 
 @end
 

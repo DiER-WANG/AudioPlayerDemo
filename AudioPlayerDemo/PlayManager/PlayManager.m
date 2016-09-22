@@ -9,9 +9,6 @@
 #import "PlayManager.h"
 #import "APAudioPlayer.h"
 #import <AVFoundation/AVFoundation.h>
-#import <MediaPlayer/MPNowPlayingInfoCenter.h>
-#import <MediaPlayer/MPMediaItem.h>
-
 #import "DmAudioItem.h"
 
 @interface PlayManager ()<APAudioPlayerDelegate>
@@ -37,21 +34,8 @@
                                                  selector:@selector(outputDeviceChanged:)
                                                      name:AVAudioSessionRouteChangeNotification
                                                    object:[AVAudioSession sharedInstance]];
-        
-        
-        
-        MPRemoteCommandCenter *cmdCenter = [MPRemoteCommandCenter sharedCommandCenter];
-        
-        [cmdCenter.pauseCommand addTarget:singleton action:@selector(pauseCmd)];
-        
     });
     return singleton;
-}
-
-- (void)pauseCmd {
-    
-    NSLog(@"xxxx");
-    
 }
 
 - (void)outputDeviceChanged:(NSNotification *)notify {

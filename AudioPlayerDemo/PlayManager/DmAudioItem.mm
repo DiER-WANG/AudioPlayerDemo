@@ -13,8 +13,6 @@
 @synthesize album;
 @synthesize artist;
 @synthesize artwork;
-@synthesize url;
-@synthesize path;
 @end
 
 //#import "tag_c.h"
@@ -74,7 +72,6 @@
     audioItem.title     = title;
     audioItem.album     = album;
     audioItem.artist    = artist;
-    audioItem.url       = fileURL;
     
     return audioItem;
 }

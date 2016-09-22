@@ -20,7 +20,7 @@
 @end
 
 
-@interface PlayManager : UIResponder
+@interface PlayManager : NSObject
 
 @property (nonatomic, assign) id<PlayManagerDelegate> delegate;
 

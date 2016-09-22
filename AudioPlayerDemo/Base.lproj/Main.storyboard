@@ -11,15 +11,15 @@
             <objects>
                 <tableViewController title="Playlist" id="vgu-a4-PF7" customClass="PlaylistViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="laX-PZ-1ox">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="se4-Ml-gsX">
-                                <rect key="frame" x="0.0" y="92" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="92" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="se4-Ml-gsX" id="vAL-so-tec">
-                                    <frame key="frameInset" width="414" height="44"/>
+                                    <frame key="frameInset" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
@@ -47,7 +47,7 @@
                         <viewControllerLayoutGuide type="bottom" id="GNx-ZY-E8j"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Nrp-v4-aSI">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oba-aH-1nh">
@@ -66,12 +66,14 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o2E-3m-aTM">
                                 <state key="normal" title="Next"/>
+                                <state key="selected" title="N"/>
                                 <connections>
                                     <action selector="playNext:" destination="EYS-15-l6w" eventType="touchUpInside" id="2DM-sv-g9u"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T0H-CI-SWx">
                                 <state key="normal" title="Previous"/>
+                                <state key="selected" title="P"/>
                                 <connections>
                                     <action selector="playPrevious:" destination="EYS-15-l6w" eventType="touchUpInside" id="Ink-yK-xGm"/>
                                 </connections>
@@ -100,6 +102,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="artwork" destination="oba-aH-1nh" id="c30-kM-bog"/>
                         <outlet property="positionSlider" destination="Bxs-nv-5WU" id="sVf-qG-zKa"/>
                         <outlet property="toggleBtn" destination="ZU9-zT-MQH" id="OKc-sL-4PZ"/>
                     </connections>

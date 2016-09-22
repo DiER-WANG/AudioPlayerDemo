@@ -91,8 +91,13 @@ void CALLBACK ChannelEndedCallback(HSYNC handle, DWORD channel, DWORD data, void
 
 - (BOOL)loadItemWithURL:(NSURL *)url autoPlay:(BOOL)autoplay
 {
-    [self.audioSession setCategory:AVAudioSessionCategoryPlayback error: nil];
-	[self.audioSession setActive:YES error:nil];
+    NSError *error = nil;
+    [self.audioSession setCategory:AVAudioSessionCategoryPlayback error: &error];
+	[self.audioSession setActive:YES error:&error];
+    
+    if (error) {
+        NSLog(@"audio session error_%@", error);
+    }
     
     //Stop channel;
     BASS_ChannelStop(_channel);
@@ -108,6 +113,8 @@ void CALLBACK ChannelEndedCallback(HSYNC handle, DWORD channel, DWORD data, void
     /* Play if needed */
     if (autoplay) {
         [self play];
+        [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error: &error];
+        [[AVAudioSession sharedInstance] setActive:YES error:&error];
     }
 
     int code = BASS_ErrorGetCode();

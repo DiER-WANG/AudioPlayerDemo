@@ -35,17 +35,17 @@
         
         _playlistArr = [NSMutableArray new];
         
-        [_playlistArr addObject:[[NSBundle mainBundle] URLForResource:@"1.wav" withExtension:@""]];
-        [_playlistArr addObject:[[NSBundle mainBundle] URLForResource:@"2.flac" withExtension:@""]];
-        [_playlistArr addObject:[[NSBundle mainBundle] URLForResource:@"3.wav" withExtension:@""]];
+        [_playlistArr addObject:[[NSBundle mainBundle] pathForResource:@"1.wav" ofType:@""]];
+        [_playlistArr addObject:[[NSBundle mainBundle] pathForResource:@"2.flac" ofType:@""]];
+        [_playlistArr addObject:[[NSBundle mainBundle] pathForResource:@"3.wav" ofType:@""]];
         
-        [_playlistArr addObject:[[NSBundle mainBundle] URLForResource:@"4.flac" withExtension:@""]];
-        [_playlistArr addObject:[[NSBundle mainBundle] URLForResource:@"5.wav" withExtension:@""]];
-        [_playlistArr addObject:[[NSBundle mainBundle] URLForResource:@"6.mp3" withExtension:@""]];
+        [_playlistArr addObject:[[NSBundle mainBundle] pathForResource:@"4.flac" ofType:@""]];
+        [_playlistArr addObject:[[NSBundle mainBundle] pathForResource:@"5.wav" ofType:@""]];
+        [_playlistArr addObject:[[NSBundle mainBundle] pathForResource:@"6.mp3" ofType:@""]];
         
-        [_playlistArr addObject:[[NSBundle mainBundle] URLForResource:@"7.flac" withExtension:@""]];
-        [_playlistArr addObject:[[NSBundle mainBundle] URLForResource:@"8.mp3" withExtension:@""]];
-        [_playlistArr addObject:[[NSBundle mainBundle] URLForResource:@"9.flac" withExtension:@""]];
+        [_playlistArr addObject:[[NSBundle mainBundle] pathForResource:@"7.flac" ofType:@""]];
+        [_playlistArr addObject:[[NSBundle mainBundle] pathForResource:@"8.mp3" ofType:@""]];
+        [_playlistArr addObject:[[NSBundle mainBundle] pathForResource:@"9.flac" ofType:@""]];
     }
     
     return _playlistArr;
@@ -60,7 +60,7 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
-    cell.textLabel.text = [NSString stringWithFormat:@"%@", [[self.playlistArr[indexPath.row] absoluteString] lastPathComponent]];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@", [self.playlistArr[indexPath.row] lastPathComponent]];
     
     return cell;
 }
