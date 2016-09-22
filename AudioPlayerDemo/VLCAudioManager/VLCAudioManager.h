@@ -13,9 +13,7 @@
 
 @optional
 - (void)vlcAudioPlayerTimeChanged:(NSString *)time position:(CGFloat)position;
-- (void)vlcAudioPlayerStateChanged:(BOOL)isPlaying;
 - (void)vlcAudioPlayerInfoChanged:(NSDictionary *)playInfo;
-
 // Remote Control 操作，改变 播放 UI 的 播放按钮的状态
 - (void)vlcRemoteControlStateChanged:(BOOL)isPlaying;
 

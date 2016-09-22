@@ -11,10 +11,20 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import <AVFoundation/AVFoundation.h>
 
+typedef NS_ENUM(NSInteger, RefreshMode) {
+    RefreshModePlay = 1,
+    RefreshModePause,
+    RefreshModeBegin,
+    RefreshModeSeek
+};
+
+
 @interface VLCAudioManager()<VLCMediaPlayerDelegate>
 
 @property (nonatomic, strong) VLCMediaListPlayer *player;
 @property (nonatomic, assign) NSUInteger currentIndex;
+
+@property(nonatomic, assign) RefreshMode refreshMode;
 
 @end
 
@@ -78,9 +88,10 @@
 }
 
 - (void)mediaPlayerTimeChanged:(NSNotification *)aNotification {
+    
+    VLCMediaPlayer *mediaPlayer = (VLCMediaPlayer *)aNotification.object;
     // 改变 时间
     if (_delegate && [_delegate respondsToSelector:@selector(vlcAudioPlayerTimeChanged:position:)]) {
-        VLCMediaPlayer *mediaPlayer = (VLCMediaPlayer *)aNotification.object;
         if (mediaPlayer.state == VLCMediaPlayerStatePlaying ||
             mediaPlayer.state == VLCMediaPlayerStateBuffering) {
             [_delegate vlcAudioPlayerTimeChanged:[NSString stringWithFormat:@"%@", mediaPlayer.time] position:mediaPlayer.position];
@@ -89,40 +100,93 @@
 }
 
 - (void)mediaPlayerStateChanged:(NSNotification *)aNotification {
-    if (_delegate && [_delegate respondsToSelector:@selector(vlcAudioPlayerStateChanged:)]) {
-        VLCMediaPlayer *mediaPlayer = (VLCMediaPlayer *)aNotification.object;
+    
+    
+    
+    VLCMediaPlayer *mediaPlayer = (VLCMediaPlayer *)aNotification.object;
+    
+    if (mediaPlayer.state == VLCMediaPlayerStateStopped) {
+        [self playNext];
+    } else {
         
-        if (mediaPlayer.state == VLCMediaPlayerStateBuffering) {
+        if (_refreshMode == RefreshModeSeek) {
+            return;
         }
-        if (mediaPlayer.state == VLCMediaPlayerStatePlaying) {
-            // 从 暂停 到 播放
-        }
-        if (mediaPlayer.state == VLCMediaPlayerStatePaused) {
-            // 从 播放 到 暂停
-        }
+        
+        [self configNowPlayingInfoWithMeida:mediaPlayer.media];
     }
 }
 
 - (void)playAtIndex:(NSUInteger)index withPlaylist:(NSArray *)playList {
     
-    NSMutableArray *mediaList = [[NSMutableArray alloc] init];
+    _refreshMode = RefreshModeBegin;
+    
+    NSMutableArray *mediaArr = [NSMutableArray new];
     
     for (NSString *path in playList) {
         VLCMedia *media = [VLCMedia mediaWithPath:path];
-        [mediaList addObject:media];
+        [mediaArr addObject:media];
     }
     
-    VLCMediaList *list = [[VLCMediaList alloc] initWithArray:mediaList];
-    _player.mediaList = list;
-    _currentIndex = index;
+    _player.mediaList = [[VLCMediaList alloc] initWithArray:mediaArr];
     [_player playItemAtIndex:(int)index];
+}
+
+- (void)configNowPlayingInfoWithMeida:(VLCMedia *)media  {
+
+    NSDictionary *metaData = [media metaDictionary];
+    MPNowPlayingInfoCenter *playingCenter = [MPNowPlayingInfoCenter defaultCenter];
+
+    if (_refreshMode == RefreshModeBegin) {
+        
+        NSMutableDictionary *playingInfo = [NSMutableDictionary new];
+        
+        NSString *title = media.url.lastPathComponent;
+        if ([metaData objectForKey:@"title"]) {
+            title = [metaData objectForKey:@"title"];
+        }
+        
+        NSString *artist = @"";
+        if ([metaData objectForKey:@"artist"]) {
+            artist = [metaData objectForKey:@"artist"];
+        }
+        
+        [playingInfo setObject:title  forKey:MPMediaItemPropertyTitle];
+        [playingInfo setObject:artist forKey:MPMediaItemPropertyArtist];
+        [playingInfo setObject:@([media.length intValue] / (60 * 24.f)) forKey:MPMediaItemPropertyPlaybackDuration];
+        [playingInfo setObject:@(0.0) forKey:MPNowPlayingInfoPropertyElapsedPlaybackTime];
+        [playingCenter setNowPlayingInfo:playingInfo];
+        
+        if (_delegate && [_delegate respondsToSelector:@selector(vlcAudioPlayerInfoChanged:)]) {
+            [_delegate vlcAudioPlayerInfoChanged:metaData];
+        }
+    }
+    if (_refreshMode == RefreshModePlay) {
+        
+        NSMutableDictionary *playingInfo = [[NSMutableDictionary alloc] initWithDictionary:playingCenter.nowPlayingInfo];
+        [playingInfo setObject:@([media.length intValue] / (60 * 24.f)) forKey:MPMediaItemPropertyPlaybackDuration];
+        [playingInfo setObject:@([_player.mediaPlayer.time intValue] / (60 * 24.f)) forKey:MPNowPlayingInfoPropertyElapsedPlaybackTime];
+        [playingInfo setObject:@(1) forKey:MPNowPlayingInfoPropertyPlaybackRate];
+        [playingCenter setNowPlayingInfo:playingInfo];
+    }
+    
+    if (_refreshMode == RefreshModePause) {
+        NSMutableDictionary *playingInfo = [[NSMutableDictionary alloc] initWithDictionary:playingCenter.nowPlayingInfo];
+        [playingInfo setObject:@([_player.mediaPlayer.time intValue] / (60 * 24.f)) forKey:MPNowPlayingInfoPropertyElapsedPlaybackTime];
+        [playingInfo setObject:@(0) forKey:MPNowPlayingInfoPropertyPlaybackRate];
+        [playingCenter setNowPlayingInfo:playingInfo];
+    }
+    
+    if (_refreshMode == RefreshModeSeek) {
+        _refreshMode = -1;
+    }
 }
 
 
 - (void)playNext {
 
+    _refreshMode = RefreshModeBegin;
     NSUInteger playMode = [[[NSUserDefaults standardUserDefaults] objectForKey:@"VLC_PLAYER_MODE"] unsignedIntegerValue];
-    
     if (playMode == 0) {
         _currentIndex++;
         [_player next];
@@ -137,16 +201,20 @@
 
 
 - (void)playPrevious {
+    _refreshMode = RefreshModeBegin;
     [_player previous];
 }
 
 - (void)pauseOrPlay {
     if (_player.mediaPlayer.isPlaying) {
+        _refreshMode = RefreshModePause;
         [_player pause];
     } else {
+        _refreshMode = RefreshModePlay;
         [_player play];
     }
 }
+
 - (void)changePlayMode {
     // 0 顺序， 1 单曲， 2 随机
     NSUInteger playMode = [[[NSUserDefaults standardUserDefaults] objectForKey:@"VLC_PLAYER_MODE"] unsignedIntegerValue];
@@ -167,7 +235,16 @@
 }
 
 - (void)seekToPosition:(CGFloat)position {
-    [_player.mediaPlayer setPosition:position];    
+    
+    _refreshMode = RefreshModeSeek;
+    VLCMedia *media = _player.mediaPlayer.media;
+    MPNowPlayingInfoCenter *playingCenter = [MPNowPlayingInfoCenter defaultCenter];
+    NSMutableDictionary *playingInfo = [[NSMutableDictionary alloc] initWithDictionary:playingCenter.nowPlayingInfo];
+    [playingInfo setObject:@([media.length intValue] * position / (60 * 24.f)) forKey:MPNowPlayingInfoPropertyElapsedPlaybackTime];
+    [playingInfo setObject:@(1) forKey:MPNowPlayingInfoPropertyPlaybackRate];
+    [playingCenter setNowPlayingInfo:playingInfo];
+    
+    [_player.mediaPlayer setPosition:position];
 }
 
 
